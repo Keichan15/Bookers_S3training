@@ -1,0 +1,8 @@
+<div class="search_form">
+  <%= form_with url: search_path, method: :get do |f| %>
+  <%= f.text_field :content %> <!-- フォームに入力した値を:contentに代入 -->
+  <%= f.select :model, options_for_select({"User"=>"user", "Book"=>"book"}) %> <!-- 検索対象を指定 -->
+  <%= f.select :method, options_for_select({"完全一致"=>"perfect", "前方一致"=>"forward", "後方一致"=>"backward", "部分一致"=>"partial"}) %> <!-- 検索方法を指定 -->
+  <%= f.submit '検索' %>
+  <% end %>
+</div>
