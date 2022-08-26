@@ -1,0 +1,14 @@
+<table class= "mx-auto">
+  <% @messages.each do |message|%>
+  <tr>
+    <td>
+      <%= message.body %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= form_with model: @message do |f| %>
+  <%= f.text_field :body %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+<% end %>

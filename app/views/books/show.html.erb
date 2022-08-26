@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'users/info', user: @user %>
+      <%= render 'users/info', user: @user, is_room: @is_room, room: @room, entry:@entry %>
       <%= render 'books/book', book: @newbook %>
     </div>
 

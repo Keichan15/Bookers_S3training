@@ -2,7 +2,6 @@
 <%= image_tag user.get_profile_image(100, 100) %><br />
 <table class="table">
   <tbody>
-    <tr></tr>
     <tr>
       <th>name</th>
       <th><%= user.name %></th>
@@ -20,8 +19,22 @@
       <th><%= link_to user.follower_user.count, user_followers_path(user) %></th>
     </tr>
     <tr>
-      <th><%= render "relationships/btn", user: user %></th>
-      <th colspan='2'></th>
+      <td>
+        <%= render "relationships/btn", user: user %> 
+        <% unless user.id == current_user.id %>
+          <% if @is_room == true %>
+            <%= link_to 'chatを始める', room_path(@room_id) %>
+          <% else %>
+            <%= form_with model: room do |f| %>
+              <%= fields_for entry do |e| %>
+                <%= e.hidden_field :user_id, value: user.id %>
+              <% end %>
+              <%= f.submit "チャットを始める" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+      <th colspan='1'></th>
     </tr>
   </tbody>
 </table>

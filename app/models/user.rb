@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   ## 仮想テーブル内の:follower, :followedに対して Relationship内からデータを引っ張ってきていることを明示
   # フォローする人(フォローするユーザーから見た中間(仮想)テーブル)
