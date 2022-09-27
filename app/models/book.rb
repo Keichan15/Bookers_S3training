@@ -8,6 +8,9 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true, length: {maximum: 200}
 
+  # Bookモデルでimpressionistを使用できるように設定 & impressions_countカラムがupdateされるように設定
+  is_impressionable counter_cache: true
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end

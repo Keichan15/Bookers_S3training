@@ -10,6 +10,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @user = current_user
     @book_comment = BookComment.new
+    @rank_books = Book.order(impressions_count: 'DESC') # ソート機能を実装(閲覧数を降順で表示)
   end
 
   def create
@@ -45,6 +46,7 @@ class BooksController < ApplicationController
         @entry = Entry.new
       end
     end
+    impressionist(@book, nil, unique: [:ip_address]) #Bookの詳細ページにアクセスすると閲覧数が1つ増える。
   end
 
   def edit
