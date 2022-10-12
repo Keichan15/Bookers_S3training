@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :introduction, length: {maximum: 50}
 
   has_many :books, dependent: :destroy
+  has_many :group_users, dependent: :destroy
+  has_many :groups, through: :group_users # 中間テーブル group_userを経由してgroupにアクセス
   has_many :book_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
