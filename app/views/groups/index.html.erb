@@ -12,7 +12,9 @@
             <th></th>
             <th>グループ名</th>
             <th>紹介文</th>
-            <th colspan="3"></th>
+            <th></th>
+            <th>メンバー数</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +27,9 @@
                 <% if group.owner_id == current_user.id %>
                   <%= link_to 'Edit', edit_group_path(group), class: "btn btn-sm btn-success" %>
                 <% end %>
+              </td>
+              <td>
+                <%= group.users.count %>
               </td>
             </tr>
           <% end %>
