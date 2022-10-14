@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :users
   root to: "homes#top"
   get 'home/about' => 'homes#about', as: 'about'
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :groups do
     get "join" => "groups#join"
+    get "mail/new" => "groups#mail_new"
+    get "mail" => "groups#mail_create"
   end
 
   get '/search' => 'searches#search'

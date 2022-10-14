@@ -1,0 +1,7 @@
+<h2>Event Mail</h2>
+
+<%= form_with url: group_mail_path, method: :get do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :content %>
+  <%= f.submit '送信' %>
+<% end %>

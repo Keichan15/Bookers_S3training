@@ -17,6 +17,18 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
 
+  def mail_new
+    
+  end
+
+  def mail_create
+    @group = Group.find(params[:group_id])
+    @group.users << current_user
+    @mail_title = params[:title]
+    @mail_content = params[:content]
+    ContactMailer.send_mail(@group.users, @mail_title, @mail_content).deliver
+  end
+
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
