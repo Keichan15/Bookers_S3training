@@ -42,6 +42,17 @@
             <td>
               コメント数：<%= @book.book_comments.count %>
             </td>
+            <td id="star-rate<%= @book.id %>"></td>
+            <script>
+              $('#star-rate<%= @book.id %>').raty({
+                size : 36,
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                readOnly: true,
+                score: <%= @book.star %>
+              })
+            </script>
             <% if @book.user_id == current_user.id %>
               <td>
                 <%= link_to "Edit", edit_book_path(@book), class: "btn btn-sm btn-success edit_book_38390" %>

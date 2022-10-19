@@ -30,6 +30,17 @@
             <td>
               <%= book.body %>
             </td>
+            <td id="star-rate<%= book.id %>"></td>
+            <script>
+              $('#star-rate<%= book.id %>').raty({
+                size : 36,
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                readOnly: true,
+                score: <%= book.star %>
+              })
+            </script>
           </tr>
           <% end %>
         </tbody>
