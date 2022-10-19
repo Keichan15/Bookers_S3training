@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   end
 
   get '/search' => 'searches#search'
+  get '/search/book_tags' => 'searches#book_tag_search'
 end

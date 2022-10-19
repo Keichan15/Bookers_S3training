@@ -5,6 +5,9 @@ class BooksController < ApplicationController
       @books = Book.latest
     elsif params[:star_count]
       @books = Book.star_count
+    elsif params[:tag_name]
+      @tag_name = params[:tag_name]
+      @books = Book.where(tag_name: @tag_name)
     else
       @books = Book.all
     end
@@ -59,6 +62,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :star)
+    params.require(:book).permit(:title, :body, :star, :tag_name)
   end
 end

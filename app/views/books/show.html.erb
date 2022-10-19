@@ -24,6 +24,9 @@
             <td>
               <%= @book.body %>
             </td>
+            <td>
+              <%= link_to @book.tag_name, books_path(tag_name: @book.tag_name) %>
+            </td>
             <% if @book.favorited_by?(current_user) %>
             <td>
               <%= link_to book_favorites_path(@book), class:"text-danger", method: :delete do %>
