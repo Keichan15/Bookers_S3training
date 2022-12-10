@@ -56,3 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'pry-byebug'
 gem "net-smtp"
+
+# 取得したAPIキーを.envで管理して環境変数で扱うGem
+gem 'dotenv-rails'
+# 楽天から商品検索を行うGem
+gem 'rakuten_web_service'

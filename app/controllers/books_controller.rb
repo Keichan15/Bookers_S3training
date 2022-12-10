@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @user = current_user
     @book_comment = BookComment.new
+    @rakuten_books = RakutenWebService::Books::Book.search(title: "Python")
   end
 
   def create

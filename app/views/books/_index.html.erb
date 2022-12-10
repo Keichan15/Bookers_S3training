@@ -43,3 +43,24 @@
     <% end %>
   </tbody>
 </table>
+
+<table class= "table">
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>タイトル</th>
+      <th>著者</th>
+      <th>出版社</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% rakuten_books.each do |rakuten_book| %>
+    <tr>
+      <td><%= image_tag rakuten_book.medium_image_url %></td>
+      <td><%= rakuten_book.title %></td>
+      <td><%= rakuten_book.author %></td>
+      <td><%= rakuten_book.publisher_name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
