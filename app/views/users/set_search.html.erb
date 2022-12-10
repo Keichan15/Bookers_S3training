@@ -1,0 +1,16 @@
+<div class='main'>
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <div class="item-container">
+      <ul class='item-lists'>
+        <% if @q.name_cont != nil %>
+          <h3 class="subtitle"><%= "#{@q.name_cont} の検索結果" %></h3>
+        <% else %>
+          <h3 class="subtitle"><%= "検索結果" %></h3>
+        <% end %>
+        <%= render 'index', users: @users %>
+      </ul>
+    </div>
+  </div>
+  <%# /商品一覧 %>
+</div>

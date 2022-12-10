@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show, :edit, :update] do
+    collection do
+      get 'set_search'
+    end
+    
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'

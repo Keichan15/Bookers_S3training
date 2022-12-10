@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'pry-byebug'
 gem "net-smtp"
+
+# ransack のGem導入
+gem 'ransack'

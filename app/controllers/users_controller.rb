@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
+  before_action :set_search
 
   def index
     @users = User.all
     @user = current_user
     @book = Book.new
+  end
+
+  def set_search
+    # params[:q] にはフォーム入力値が入る
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def show
