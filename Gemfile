@@ -61,3 +61,4 @@ gem "net-smtp"
 gem 'dotenv-rails'
 # 楽天から商品検索を行うGem
 gem 'rakuten_web_service'
+gem 'geocoder'

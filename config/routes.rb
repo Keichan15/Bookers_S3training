@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   end
 
   get '/search' => 'searches#search'
+
+  resources :maps
 end

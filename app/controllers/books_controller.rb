@@ -6,6 +6,10 @@ class BooksController < ApplicationController
     @user = current_user
     @book_comment = BookComment.new
     @rakuten_books = RakutenWebService::Books::Book.search(title: "Python")
+    @maps = Map.all
+    results = Geocoder.search("Paris")
+    address = results.first.coordinates
+    # binding.pry
   end
 
   def create
